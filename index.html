@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cover Letter Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    label {
+        font-weight: bold;
+        display: block;
+        margin: 10px 0 5px;
+    }
+    input, textarea, button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    button {
+        background-color: #28a745;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        font-weight: bold;
+    }
+    button:hover {
+        background-color: #218838;
+    }
+    .output {
+        margin-top: 20px;
+        white-space: pre-line;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cover Letter Generator</h1>
+    <label for="company">Nama Perusahaan</label>
+    <input type="text" id="company" placeholder="Contoh: PT Endo Indonesia">
+
+    <label for="position">Posisi Lowongan</label>
+    <input type="text" id="position" placeholder="Contoh: Web Developer">
+
+    <button onclick="generateLetter()">Generate Cover Letter</button>
+
+    <div class="output" id="output"></div>
+</div>
+
+<script>
+      function formatDate(date) {
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        return new Intl.DateTimeFormat('id-ID', options).format(date);
+    }
+    
+    function generateLetter() {
+        const company = document.getElementById('company').value;
+        const position = document.getElementById('position').value;
+        const currentDate = formatDate(new Date());
+        const letterTemplate = `
+Dary Mahdi
+Dk Bulak Banteng pratama 4 no 19
++6281357646859
+darmah250903@gmail.com
+${currentDate}
+
+Kepada Yth,
+HRD ${company}
+Dengan hormat,
+
+Saya, Dary Mahdi, dengan ini mengajukan lamaran untuk ${position} di ${company}. Saya memiliki pengalaman selama 3 tahun di bidang pengembangan website dan mobile, yang telah membekali saya dengan keterampilan yang diperlukan untuk berkontribusi secara signifikan dalam pengembangan sistem dan aplikasi web yang dapat mendukung kebutuhan operasional perusahaan.
+
+Selama karir saya, saya telah terlibat dalam berbagai proyek pengembangan web menggunakan teknologi seperti HTML, CSS, JavaScript, PHP, dan framework modern seperti Laravel, Gin, Express, Flutter, dan Vue. Pengalaman ini telah memungkinkan saya untuk mengelola seluruh siklus pengembangan aplikasi, mulai dari perencanaan, desain, pengkodean, hingga testing dan implementasi. Saya juga terbiasa bekerja dalam tim yang menggunakan metode Agile, sehingga dapat bekerja dengan efektif dalam kolaborasi maupun secara mandiri.
+
+Selain keterampilan teknis, saya juga memiliki kemampuan untuk memecahkan masalah dengan cepat, komunikasi yang baik, dan mampu menyesuaikan diri dengan perubahan teknologi yang cepat.
+
+Saya berharap dapat diberi kesempatan untuk mendiskusikan bagaimana keterampilan dan pengalaman saya dapat memberikan kontribusi yang positif bagi ${company}. Saya siap untuk menghadiri wawancara dan dapat dihubungi melalui nomor telepon atau email yang tertera di atas.
+
+Terima kasih atas perhatian dan kesempatan yang diberikan.
+
+Hormat saya,
+
+Dary Mahdi
+        `;
+        document.getElementById('output').innerText = letterTemplate;
+
+        navigator.clipboard.writeText(letterTemplate);
+    }
+
+    
+</script>
+
+</body>
+</html>
